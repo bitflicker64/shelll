@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -6,5 +6,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
+        System.out.println(input + ": command not found");
+
     }
 }
