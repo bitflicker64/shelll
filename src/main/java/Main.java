@@ -5,7 +5,7 @@ public class Main {
         //(m himanshu verma aka bitflicker doing this code so yea no ai shit i am learning )
         System.out.print("$ ");
         String input;
-        try (Scanner o = new Scanner(System.in));{
+        try (Scanner o = new Scanner(System.in)){
          /*
          * this comment is for future referance only so yea basically for me the code writer so .....
          * This loop runs as long as there is more input to read from the user.
