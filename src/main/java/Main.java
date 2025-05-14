@@ -31,12 +31,15 @@ public class Main {
         switch(command){
             case "exit":
             System.exit(0);
+            break;
             case "echo":
             // If user types "echo Hello", it prints "Hello"  // input.split(" ", 2)[1] splits only into 2 parts: ["echo", "Hello"]
             System.out.println(input.split(" ",2)[1]);
              // Prints an error message to System.err (standard error stream)
+             break;
              default : System.err.printf("%s: command not found%n", input);
              // '%s' is replaced by the whole input//'%n' adds a new line in a platform-safe way
+             break;
 
         }
         System.out.print("$ ");
