@@ -5,7 +5,14 @@ public class Main {
         //(m himanshu verma aka bitflicker doing this code so yea no ai shit i am learning )
         System.out.print("$ ");
         String input;
-        String a=
+
+        // built-in commands
+        HashMap<String, String> cmds = new HashMap<>() {{
+            put("echo", "shell builtin");
+            put("exit", "shell builtin");
+            put("type", "shell builtin");
+        }};
+
         try (Scanner o = new Scanner(System.in)){
          /*
          * this comment is for future referance only so yea basically for me the code writer so .....
@@ -28,26 +35,44 @@ public class Main {
         while (o.hasNextLine()) //after this hasLine command dont have to use close command lol 
         {
             input = o.nextLine();
-        String command = input.split(" ")[0];
-        if(command.equals("test")){
+            String[] parts = input.trim().split(" ", 2);
+            String command = parts[0];
 
-        }
-        switch(command){
-            case "exit":
-            System.exit(0);
-            break;
-            case "echo":
-            // If user types "echo Hello", it prints "Hello"  // input.split(" ", 2)[1] splits only into 2 parts: ["echo", "Hello"]
-            System.out.println(input.split(" ",2)[1]);
-             // Prints an error message to System.err (standard error stream)
-             break;
-             default : System.err.printf("%s: command not found%n", input);
-             // '%s' is replaced by the whole input//'%n' adds a new line in a platform-safe way
-             break;
+            if(command.equals("test")){
 
+            }
+
+            if(command.equals("type")){
+                if(parts.length < 2){
+                    System.out.println("type: missing argument");
+                } else {
+                    String target = parts[1];
+                    if(cmds.containsKey(target)){
+                        System.out.println(target + " is a " + cmds.get(target));
+                    } else {
+                        System.out.println(target + ": not found");
+                    }
+                }
+            } else {
+                switch(command){
+                    case "exit":
+                        System.exit(0);
+                        break;
+                    case "echo":
+                        if (parts.length > 1) {
+                            System.out.println(parts[1]);
+                        } else {
+                            System.out.println();
+                        }
+                        break;
+                    default : 
+                        System.err.printf("%s: command not found%n", input);
+                        break;
+                }
+            }
+
+            System.out.print("$ ");
         }
-        System.out.print("$ ");
-    }
         }   
       }
 }
