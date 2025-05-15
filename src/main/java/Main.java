@@ -5,6 +5,7 @@ public class Main {
         //(m himanshu verma aka bitflicker doing this code so yea no ai shit i am learning )
         System.out.print("$ ");
         String input;
+        String a=
         try (Scanner o = new Scanner(System.in)){
          /*
          * this comment is for future referance only so yea basically for me the code writer so .....
@@ -28,6 +29,9 @@ public class Main {
         {
             input = o.nextLine();
         String command = input.split(" ")[0];
+        if(command.equals("test")){
+
+        }
         switch(command){
             case "exit":
             System.exit(0);
@@ -44,6 +48,6 @@ public class Main {
         }
         System.out.print("$ ");
     }
-        }
+        }   
       }
 }
