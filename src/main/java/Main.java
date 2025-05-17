@@ -6,7 +6,7 @@ public class Main {
         System.out.print("$ ");
         String input;
 
-        // built-in commands
+        // built-in commands 
         HashMap<String, String> cmds = new HashMap<>() {{
             put("echo", "shell builtin");
             put("exit", "shell builtin");
