@@ -39,40 +39,39 @@ public class Main {
             String command = parts[0];
 
             if(command.equals("test")){
-
+                // currently empty — placeholder for future test commands if needed
             }
 
-            if(command.equals("type")){
-                if(parts.length < 2){
-                    System.out.println("type: missing argument");
-                } else {
-                    String target = parts[1];
-                    if(cmds.containsKey(target)){
-                        System.out.println(target + " is a " + cmds.get(target));
+            switch(command){
+                case "type":
+                    if(parts.length < 2){
+                        System.out.println("type: missing argument");
                     } else {
-                        System.out.println(target + ": not found");
-                    }
-                }
-            } else {
-                switch(command){
-                    case "exit":
-                        System.exit(0);
-                        break;
-                    case "echo":
-                        if (parts.length > 1) {
-                            System.out.println(parts[1]);
+                        String target = parts[1];
+                        if(cmds.containsKey(target)){
+                            System.out.println(target + " is a " + cmds.get(target));
                         } else {
-                            System.out.println();
+                            System.out.println(target + ": not found");
                         }
-                        break;
-                    default : 
-                        System.err.printf("%s: command not found%n", input);
-                        break;
-                }
+                    }
+                    break;
+                case "exit":
+                    System.exit(0);
+                    break;
+                case "echo":
+                    if (parts.length > 1) {
+                        System.out.println(parts[1]);
+                    } else {
+                        System.out.println();
+                    }
+                    break;
+                default : 
+                    System.err.printf("%s: command not found%n", input);
+                    break;
             }
 
             System.out.print("$ ");
         }
         }   
-      }
-
+    }
+}
