@@ -21,7 +21,7 @@ stage:
 git commit -am "pass 1st stage" # any msg
 git push origin master
 ```
-
+ 
 Time to move on to the next stage!
 
 # Stage 2 & beyond
