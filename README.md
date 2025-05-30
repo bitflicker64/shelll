@@ -1,35 +1,57 @@
-[![progress-banner](https://backend.codecrafters.io/progress/shell/413e8269-c452-487f-b95c-a2202a637585)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
+# JavaShell
 
-This is a starting point for Java solutions to the
-["Build Your Own Shell" Challenge](https://app.codecrafters.io/courses/shell/overview).
+A minimal command-line shell implemented in Java. It supports basic built-in commands and demonstrates core concepts like REPL loops, command parsing, and interaction with system environment variables.
 
-In this challenge, you'll build your own POSIX compliant shell that's capable of
-interpreting shell commands, running external programs and builtin commands like
-cd, pwd, echo and more. Along the way, you'll learn about shell command parsing,
-REPLs, builtin commands, and more.
+## Features
 
-**Note**: If you're viewing this repo on GitHub, head over to
-[codecrafters.io](https://codecrafters.io) to try the challenge.
+- **REPL Loop**: Continuously reads user input, evaluates it, and prints the output.
+- **Built-in Commands**:
+  - `echo [text]` – Prints the provided text.
+  - `exit` – Exits the shell.
+  - `type [command]` – Checks if a command is built-in or available in the system's `PATH`.
+- **PATH Search**: The `type` command looks for executables in the system’s `PATH`.
 
-# Passing the first stage
+## How It Works
 
-The entry point for your `shell` implementation is in `src/main/java/Main.java`.
-Study and uncomment the relevant code, and push your changes to pass the first
-stage:
+- Uses a `HashMap` to store built-in commands and their handlers.
+- Reads user input line-by-line.
+- For `type`, it scans through directories listed in the system's `PATH` to determine if the command exists.
 
-```sh
-git commit -am "pass 1st stage" # any msg
-git push origin master
-```
- 
-Time to move on to the next stage!
+## Requirements
 
-# Stage 2 & beyond
+- Java 8 or higher
+- Tested on Windows (VS Code)
 
-Note: This section is for stages 2 and beyond.
+## Usage
 
-1. Ensure you have `mvn` installed locally
-1. Run `./your_program.sh` to run your program, which is implemented in
-   `src/main/java/Main.java`.
-1. Commit your changes and run `git push origin master` to submit your solution
-   to CodeCrafters. Test output will be streamed to your terminal.
+1. **Compile**:
+   ```bash
+   javac Shell.java
+   ```
+
+2. **Run**:
+   ```bash
+   java Shell
+   ```
+
+3. **Example Commands**:
+   ```shell
+   > echo Hello, World!
+   Hello, World!
+
+   > type echo
+   echo is a shell builtin
+
+   > type notepad
+   notepad is /C/Windows/System32/notepad.exe
+   ```
+
+## TODO (Coming Soon)
+
+- Add support for external command execution.
+- Implement piping and redirection.
+- Enhance cross-platform compatibility.
+
+## License
+
+This project is open-source and free to use for educational purposes.
