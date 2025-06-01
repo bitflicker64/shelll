@@ -1,6 +1,19 @@
+import java.io.File;
 import java.util.*;
-
 public class Main {
+     public static String findInPath(String command) {
+        String pathEnv = System.getenv("PATH");
+        String[] pathDirs = pathEnv.split(File.pathSeparator);//using pathseperator because its windows we could've used ":" instead if it was linux 
+
+        for (String dir : pathDirs) {
+            File file = new File(dir, command);
+            if (file.exists() && file.canExecute()) {
+                return file.getAbsolutePath();
+            }
+        }
+
+        return null;
+    }
     public static void main(String[] args) throws Exception {
         //(m himanshu verma aka bitflicker doing this code so yea no ai shit i am learning )
         System.out.print("$ ");
@@ -48,10 +61,19 @@ public class Main {
                         System.out.println("type: missing argument");
                     } else {
                         String target = parts[1];
-                        if(cmds.containsKey(target)){
+                        if(cmds.containsKey(target))
+                        {
                             System.out.println(target + " is a " + cmds.get(target));
-                        } else {
-                            System.out.println(target + ": not found");
+                        } 
+                        else
+                         {
+                            String result = findInPath(target);
+                            if (result != null) {
+                                System.out.println(target + " is " + result);
+                            } else {
+                                System.out.println(target + ": not found");
+                            }
+
                         }
                     }
                     break;
